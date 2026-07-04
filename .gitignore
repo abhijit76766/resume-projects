@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.huff
+restored.txt
+report.html
+node_modules/
+dist/
+.env
+.venv/
+venv/

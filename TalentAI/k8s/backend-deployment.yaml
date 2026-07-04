@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: talentai-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: talentai-backend
+  template:
+    metadata:
+      labels:
+        app: talentai-backend
+    spec:
+      containers:
+        - name: backend
+          image: talentai-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: talentai-backend
+spec:
+  selector:
+    app: talentai-backend
+  ports:
+    - port: 8000
+      targetPort: 8000
